@@ -90,7 +90,7 @@ class Bird(pg.sprite.Sprite):
         screen.blit(self.image, self.rect)
 
 
-
+    
     def change_state(self,state,hyper_life):
         """
         こうかとんの状態を切り替えるメゾット
@@ -138,7 +138,7 @@ class Bird(pg.sprite.Sprite):
 
 
         screen.blit(self.image, self.rect)
-
+    
     def get_direction(self) -> tuple[int, int]:
         return self.dire
 
@@ -147,7 +147,8 @@ def main():
     pg.display.set_caption("タンクサバイバー")
     screen = pg.display.set_mode((WIDTH, HEIGHT))
     bg_img = pg.image.load("fig/pg_bg.jpg")
-
+    time_limit = 30
+    start_time = time.time()
 
     bird = Bird(3, (900, 400))
     while True:
@@ -157,6 +158,7 @@ def main():
                 return 0
 
         screen.blit(bg_img, [0, 0])
+
 
 
         bird.update(key_lst, screen)
